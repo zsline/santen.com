@@ -16,27 +16,46 @@ document.addEventListener('keypress', function(event) {
     }
 });
 
+
 // ============ QUIZ ====================
 
-
-
 const quiz = document.querySelector('.quiz');
+const result = document.querySelector('.result');
+const resultInner = document.querySelector('.quiz__result');
 const quizBoxes = quiz.querySelectorAll('.quiz__item');
 const quizItems = quiz.querySelectorAll('li');
 const nextBox = document.querySelector('[data-next]');
-
-
-
-console.dir(quizBoxes);
+const resultBox = document.querySelector('[data-result]');
+const booletsBoxes = document.querySelector('.osdi__paginations');
+const booletsBox = document.querySelector('.osdi__paginations--bullets');
+const resIndex = document.querySelector('.result__title');
+const ratioLine = document.querySelector('.result__line--ratio');
 
 let ratioInt = 0;
 let quizCurrent = 0;
 let quizItemsCurrent = 0;
 
-// Добавление счётчика в заголовок
+// Добавление булетов
+function createBullets (){
+    for(let i = 1; i < quizBoxes.length +1; i++){
+            booletsBox.innerHTML += '<li data-item="' + i + '"></li>';
+        } 
+}
+createBullets();
 
+// ====================
+// Окрашивание буллетов 
+function fillBullets() {
+    booletsBox.querySelectorAll('li').forEach(el => {
+        if(el.getAttribute('data-item') <= quizItemsCurrent){
+            el.classList.add('pass');
+        }
+    });
+}
+
+// Добавление счётчика в заголовок
 function addText() {
-    document.querySelector('.current').textContent = quizCurrent + ' / ' + quizItemsCurrent + ' (' + Math.round(ratioInt) + ') ';
+    resIndex.firstElementChild.innerHTML = Math.round(ratioInt);
 }
 
 // Коэффициент
@@ -54,7 +73,6 @@ function nextBoxses() {
     });
     for(let i = 0; i < quizBoxes.length; i++){
         if(quizBoxes[i].dataset.item == quizItemsCurrent + 1){
-            console.dir(quizBoxes[i].dataset.item);
             quizBoxes[i].classList.add('active');
         }
         
@@ -75,30 +93,44 @@ function itemCurrent() {
                 if(el.classList.contains('btn-light')){
                     quizAddCurrent(el.dataset.value);
                     quizItemsCurrent ++;
-                    console.log(quizCurrent);
-                    console.log(quizItemsCurrent);
                 }
             });
         }
     });
 }
+// Кнопки Далее и Результат
+function resultBtn() {
+    if(document.querySelectorAll('.pass').length == quizBoxes.length){
+        booletsBoxes.style.display = 'none';
+        document.querySelector('[data-result]').style.display = 'inline-block';
+        console.log(ratioInt);
+        addText();
+        ratioLine.style.width = ratioInt + '%';
+        result.style.display = 'block';
+    }
+}
 
-
-
+// Выбор состояния
 quizItems.forEach(el => {
     el.addEventListener('click', (e) => {
         quizItems.forEach(el => {
             el.classList.remove('btn-light');
         });
         e.target.classList.add('btn-light');
-        itemCurrent()
+        itemCurrent();
     })
 });
 
+// ================== Кнопка ДАЛЕЕ ========================
 nextBox.addEventListener('click', (e) => {
     e.preventDefault();
     nextBoxses();
-    addText();
+    fillBullets();
+    resultBtn();
     ratio();
 });
 
+resultBox.addEventListener('click', (e) => {
+    e.preventDefault();
+    location.reload();
+});
