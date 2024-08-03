@@ -29,14 +29,20 @@ const nextBox = document.querySelector('[data-next]');
 
 console.dir(quizBoxes);
 
-
+let ratioInt = 0;
 let quizCurrent = 0;
 let quizItemsCurrent = 0;
 
 // Добавление счётчика в заголовок
 
 function addText() {
-    document.querySelector('.current').textContent = quizCurrent + ' / ' + quizItemsCurrent;
+    document.querySelector('.current').textContent = quizCurrent + ' / ' + quizItemsCurrent + ' (' + Math.round(ratioInt) + ') ';
+}
+
+// Коэффициент
+
+function ratio() {
+    ratioInt =  quizCurrent * 25 / quizItemsCurrent;
 }
 
 // Переход на следующий вопрос
@@ -93,5 +99,6 @@ nextBox.addEventListener('click', (e) => {
     e.preventDefault();
     nextBoxses();
     addText();
+    ratio();
 });
 
