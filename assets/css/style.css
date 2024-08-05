@@ -192,12 +192,35 @@ header nav.open .menu-close::before{
     justify-content: space-between;
     align-items: center;
 }
+.header__wrapper a small{
+    color: var(--main-color);
+    font-weight: 600;
+}
 .header__menu--btns{
     display: flex;
     align-items: center;
     gap: 13px;
 }
-
+.header a[data-test]{
+    position: relative;
+    padding-left: 56px;
+}
+.header a[data-test]::before{
+    box-sizing: border-box;
+    position: absolute;
+    content: '';
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    background-image: url(../img/icons/octurias-logo.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
 /*====================== HERO HOME ================*/
 

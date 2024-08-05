@@ -4,10 +4,12 @@ const navMenu = document.querySelector('.header nav');
 const menuOpen = document.querySelector('.menu-open');
 const menuClose = document.querySelector('.menu-close');
 
-menuOpen.addEventListener('click', () => {
+menuOpen.addEventListener('click', (e) => {
+    e.preventDefault();
     navMenu.classList.add('open');
 });
-menuClose.addEventListener('click', () => {
+menuClose.addEventListener('click', (e) => {
+    e.preventDefault();
     navMenu.classList.remove('open');
 });
 document.addEventListener('keypress', function(event) {
