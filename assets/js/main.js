@@ -1,6 +1,6 @@
 // ==== Menu ====
 
-const navMenu = document.querySelector('.header nav');
+const navMenu = document.querySelector('.header');
 const menuOpen = document.querySelector('.menu-open');
 const menuClose = document.querySelector('.menu-close');
 
@@ -13,6 +13,7 @@ menuClose.addEventListener('click', (e) => {
     navMenu.classList.remove('open');
 });
 document.addEventListener('keypress', function(event) {
+    event.preventDefault();
     if(event.keyCode == 32){
     navMenu.classList.toggle('open');
     }
