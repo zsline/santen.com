@@ -19,6 +19,23 @@ document.addEventListener('keypress', function(event) {
     }
 });
 
+// =========== СЛАЙДЕРЫ ===============
+
+const swiper = new Swiper('.care__slider', {
+    // Optional parameters
+    loop: true,
+    effect: 'fade',
+    // If we need pagination
+    pagination: {
+      el: '.care__paginations',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.care__next',
+      prevEl: '.care__prev',
+    },
+  });
 
 // ============ QUIZ ====================
 
