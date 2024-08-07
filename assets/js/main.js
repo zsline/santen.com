@@ -173,6 +173,13 @@ quizItems.forEach(el => {
         });
         e.target.classList.add('btn-light');
         itemCurrent();
+    });
+    el.addEventListener('touchstart', (e) => {
+        quizItems.forEach(el => {
+            el.classList.remove('btn-light');
+        });
+        e.target.classList.add('btn-light');
+        itemCurrent();
     })
 });
 
