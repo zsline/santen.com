@@ -156,8 +156,9 @@ function itemCurrent() {
 function resultBtn() {
     if(document.querySelectorAll('.pass').length == quizBoxes.length){
         booletsBoxes.style.display = 'none';
-        resultBox.style.display = 'inline-block';
-        console.log(ratioInt);
+        resultBox.style.display = 'block';
+        resultBox.style.maxWidth = '400px';
+        resultBox.style.textAlign = 'center';
         addText();
         ratioLine.style.width = ratioInt + '%';
         result.style.display = 'block';
