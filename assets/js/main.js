@@ -21,16 +21,29 @@ document.addEventListener('keypress', function(event) {
 
 // =========== СЛАЙДЕРЫ ===============
 
-const swiper = new Swiper('.care__slider', {
-    // Optional parameters
+new Swiper('.home__slider', {
+    autoplay: true,
+    loop: true,
+    spaceBetween: 600,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+      },
+    navigation: {
+      nextEl: '.slider__next',
+      prevEl: '.slider__prev',
+    },
+  });
+
+  new Swiper('.care__slider', {
     loop: true,
     effect: 'fade',
-    // If we need pagination
+    fadeEffect: {
+        crossFade: true
+      },
     pagination: {
       el: '.care__paginations',
     },
-  
-    // Navigation arrows
     navigation: {
       nextEl: '.care__next',
       prevEl: '.care__prev',
