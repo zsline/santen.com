@@ -500,13 +500,13 @@ header.open nav .menu-close::before{
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 120px;
+        top: 106px;
         width: 300px;
     }
 }
 @media(max-width: 680px){
     .header a[data-test]{
-        top: 100px;
+        top: 86px;
         width: 300px;
     }
     .hero-home{
