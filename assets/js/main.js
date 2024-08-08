@@ -21,7 +21,8 @@ document.addEventListener('keypress', function(event) {
 
 // =========== СЛАЙДЕРЫ ===============
 
-new Swiper('.home__slider', {
+if(document.querySelector('.home__slider')){
+    new Swiper('.home__slider', {
     autoplay: true,
     loop: true,
     spaceBetween: 600,
@@ -34,8 +35,10 @@ new Swiper('.home__slider', {
       prevEl: '.slider__prev',
     },
   });
+}
 
-  new Swiper('.care__slider', {
+if(document.querySelector('.care__slider')){
+      new Swiper('.care__slider', {
     loop: true,
     effect: 'fade',
     fadeEffect: {
@@ -49,6 +52,8 @@ new Swiper('.home__slider', {
       prevEl: '.care__prev',
     },
   });
+}
+
 
 // ============ QUIZ ====================
 
@@ -69,7 +74,7 @@ let ratioInt = 0;
 let quizCurrent = 0;
 let quizItemsCurrent = 0;
 
-const normaBox = document.querySelector
+// const normaBox = document.querySelector
 
 // Визуализация результата 
 
