@@ -349,13 +349,12 @@ header.open nav .menu-close::before{
 .hero{
     background: var(--gr-color);
     overflow: hidden;
-}
-.hero-home{
-    /* height: 700px; */
     padding: clamp(0.63rem, calc(-0.72rem + 6.73vw), 5rem) 0;
 }
-.hero-osdi{
-    /* max-height: 700px; */
+.hero h2{
+    position: relative;
+    z-index: 2;
+    color: #fff;
 }
 .hero-osdi .hero-osdi__offer{
     padding: 56px 0;
@@ -566,7 +565,10 @@ header.open nav .menu-close::before{
         align-items: end;
     }
     .header__title{
-        display: none;
+        font-size: 20px;
+        top: 28px;
+        left: 0;
+        transform: translateX(40px);
     }
     .header{
         padding: 8px 0;
